@@ -3,23 +3,23 @@ A dataset of about 20k questions that are elicited from readers as they naturall
 
 ## Environment Setup
 - The environment is saved in requirements.txt 
-# Data preprocessing
-## Question data generation
+## Data preprocessing
+### Question data generation
 - Source inquisitive data - question.csv(rename the question.txt in the repo as it)
 - Modify the source articles saving path in preprocess.py and build an empty folder to save train/val/test data
 - Run <code>$preprocess.py prepare_question_generation=True</code>
 - The generated data has a format of context(including the anchor sentence which contains the span) + highlighted span + question
 
-## Span data generation
+### Span data generation
 - Run <code>$python preprocess.py prepare_span_prediction=True</code>
 - To fine tune bert for span prediction, run <code>$python fine_tune_squad.py</code>. It will save model as model_save_span_predict
 
-# Train model
+## Train model
 - Run <code>$python fine_tune_inquisitive.py</code> to fine-tune model to generate questions
 - Run <code>$python fine_tune_squad.py</code> to fine-tune models to predict spans
 - To generate span using prediction model, run <code>$python predict_span.py</code>. It will generate and save the result in result(please build an empty directory for result first)
 
-# Generate Spans & Questions
+## Generate Spans & Questions
 - We use golden spans and predicted spans to generate questions
 - To use predicted spans, we need to <code>$python preprocess.py --prepare_question_generation=True --use_predict_span=True</code> to generate desired input
 - Then we can call <code>$python ./transformers/examples/text-generation/generate_for_fine_tune.py --model_type=gpt2 --model_name_or_path=<model path> --use_golden_span=True --golden_span_dir=<b>inquisitive data including golden span directory</b></code> to generate questions on golden span information
