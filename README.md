@@ -12,7 +12,6 @@ A dataset of about 20k questions that are elicited from readers as they naturall
 
 ### Span data generation
 - Run <code>$python preprocess.py prepare_span_prediction=True</code>
-- To fine tune bert for span prediction, run <code>$python fine_tune_squad.py</code>. It will save model as model_save_span_predict
 
 ## Train model
 - Run <code>$python fine_tune_inquisitive.py</code> to fine-tune model to generate questions
