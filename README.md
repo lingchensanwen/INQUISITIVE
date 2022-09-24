@@ -20,8 +20,8 @@ A dataset of about 20k questions that are elicited from readers as they naturall
 # Generate Spans & Questions
 - We use golden spans and predicted spans to generate questions
 - To use predicted spans, we need to <code>$python preprocess.py --prepare_question_generation=True --use_predict_span=True</code> to generate desired input
-- Then we can call <code>$python ./transformers/examples/text-generation/generate_for_fine_tune.py --model_type=gpt2 --model_name_or_path=<model path> --use_golden_span=True --golden_span_dir=<inquisitive data including golden span directory></code> to generate questions on golden span information
-- We can call <code>$python /transformers/examples/text-generation/generate_for_fine_tune.py --model_type=gpt2 --model_name_or_path=<model path> --use_predict_span=True --predict_span_dir=<inquisitive data including predicted span directory></code> to generate questions on predicted span information
+- Then we can call <code>$python ./transformers/examples/text-generation/generate_for_fine_tune.py --model_type=gpt2 --model_name_or_path=<model path> --use_golden_span=True --golden_span_dir=<b>inquisitive data including golden span directory</b></code> to generate questions on golden span information
+- We can call <code>$python /transformers/examples/text-generation/generate_for_fine_tune.py --model_type=gpt2 --model_name_or_path=<model path> --use_predict_span=True --predict_span_dir=<b>inquisitive data including predicted span directory path </b></code>to generate questions on predicted span information
 
 **Citation:**
 ```
